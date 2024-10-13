@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+    background: rgb(188,191,207);
+    background: radial-gradient(circle, rgba(188,191,207,1) 0%, rgba(255,255,255,1) 100%);
+    }
+  </style>
+  <script src="script.js" defer></script>
+  <title>Home</title>
+  <link rel="shortcut icon" href="icon_document.png" type="image/x-icon">
+</head>
+<body>
+  <!--Profile icon-->
+  <button id="small-profile"onclick="document.location='profile_page.html'" style="width: 50px;height: 50px;background-image: url('');border-radius: 50%;background-size: cover;right: 0px;margin-right: 1%;position: absolute;"></button>
+  <!--Add button and Delete button-->
+  <div class="fab-wrapper">
+    <input id="fabCheckbox" type="checkbox" class="fab-checkbox" />
+    <label class="fab" for="fabCheckbox">
+      <span class="fab-lines fab-lines-1"></span>
+      <span class="fab-lines fab-lines-2"></span>
+    </label>
+    <div class="fab-wheel">
+        <button class="fab-action fab-action-add" id="add-doc-btn"> + </button>
+        <button class="fab-action fab-action-del" id="delete-doc-btn">Del</button>
+    </div>
+  </div>
+  <!--Document box and GridLayout-->
+  <div class="grid-container" id="docs"></div>
+
+  <script>
+    //load previous files
+    const smallProfile = document.getElementById('small-profile');
+    const savedImage = localStorage.getItem('profileImage');
+    if (savedImage) {
+      smallProfile.style.backgroundImage = `url(${savedImage})`;
+    }
+  </script>
+</body>
+</html>

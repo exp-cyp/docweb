@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: rgb(238,174,192);
+      background: radial-gradient(circle, rgba(238,174,192,1) 0%, rgba(148,187,233,1) 75%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+}
+  </style>
+  <title>Profile</title>
+  <link rel="shortcut icon" href="file_icon.png" type="image/x-icon">
+</head>
+<body>
+  <button id="home" onclick="document.location='index.html'">Home</button>
+
+  <div class="profile-picture-container">
+    <label for="image-input" class="change-picture-text">Change Picture</label>
+    <input type="file" id="image-input">
+    <img id="profile-pic" src="" alt="Profile Picture">
+  </div>
+
+  <div class="infomation-con">
+    <input type="text" id="name-input" placeholder="Enter your name. . .">
+    <input type="text" id="rank-input" placeholder="Enter your rank. . .">
+    <button id="save-btn">Save</button>
+  </div>
+  <script>
+    // load previous files
+    document.getElementById('name-input').value = localStorage.getItem('name') || '';
+    document.getElementById('rank-input').value = localStorage.getItem('rank') || '';
+    const savedImage = localStorage.getItem('profileImage');
+    if (savedImage) document.getElementById('profile-pic').src = savedImage;
+
+    // update img 
+    document.getElementById('image-input').addEventListener('change', function(event) {
+      const reader = new FileReader();
+      reader.onload = function() {
+        document.getElementById('profile-pic').src = reader.result;
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    });
+
+    // save button
+    document.getElementById('save-btn').onclick = function() {
+      const name = document.getElementById('name-input').value;
+      const rank = document.getElementById('rank-input').value;
+      const profileImage = document.getElementById('profile-pic').src;
+
+      localStorage.setItem('name', name);
+      localStorage.setItem('rank', rank);
+      localStorage.setItem('profileImage', profileImage);
+    };
+  </script>
+</body>
+</html>

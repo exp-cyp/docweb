@@ -1,0 +1,291 @@
+/*Home doc*/
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 10px;
+    margin: 20px;
+    margin-right: 20vh;
+}
+  /*Doc box*/
+.doc-box {
+    width: 87%;
+    height: 150px;
+    background-color: #f5f5f5;
+    background-image: url(file_index.png);
+    background-size:cover;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 20px;
+    
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+} 
+.doc-box:hover {
+    box-shadow: 0px 5px 20px 5px #22222276;
+    opacity: 0.5;
+} 
+.doc-heading {
+    font-weight: bold;
+    font-family: Oswald;
+}
+.doc-writer {
+    font-style: italic;
+    font-size: 0.9rem;
+}
+.doc-delete-btn {
+    margin-top: 10px;
+    background-color: rgba(230, 28, 28, 0.906);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+  /*add button and main delete button*/
+.fab-wrapper {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+}
+.fab-checkbox {
+    display: none;
+}
+.fab {
+    position: absolute;
+    bottom: -1rem;
+    right: -1rem;
+    width: 4rem;
+    height: 4rem;
+    background: blue;
+    border-radius: 50%;
+    background: #126ee2;
+    box-shadow: 0px 5px 20px #81a4f1;
+    transition: all 0.3s ease;
+    z-index: 1;
+    border-bottom-right-radius: 6px;
+    border: 1px solid #0c50a7;
+}
+.fab:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.fab-checkbox:checked ~ .fab:before {
+    width: 90%;
+    height: 90%;
+    left: 5%;
+    top: 5%;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.fab:hover {
+    background: #2c87e8;
+    box-shadow: 0px 5px 20px 5px #81a4f1;
+}
+.fab-lines {
+    position: absolute;
+    background-color: white;
+    top: 50%;
+    border-radius: 10px;
+    transform: translateX(0%) translateY(-50%) rotate(0deg);
+    transition: all 0.3s ease;
+}
+.fab-lines-1 {
+    left: 28%;
+    height:6px;
+    width:32px;
+}
+.fab-lines-2 {
+    left: 48%;
+    height: 32px;
+    width: 6px;
+}
+.fab-checkbox:checked ~ .fab .fab-lines {
+    height: 6px;
+}
+.fab-checkbox:checked ~ .fab .fab-lines-1 {
+    width: 32px;
+    border-radius: 10px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+}
+.fab-checkbox:checked ~ .fab .fab-lines-2 {
+    width: 32px;
+    border-radius: 10px;
+    left: 0%;
+    transform: translateX(50%) translateY(-50%) rotate(-45deg);
+}
+@keyframes blink {
+    50% {
+      opacity: 0.25;
+    }
+}
+.fab-checkbox:checked ~ .fab .fab-lines {
+    animation: none;
+}
+.fab-wheel {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: 1px transparent ;
+    width: 10rem;
+    height: 10rem;
+    transition: all 0.3s ease;
+    transform-origin: bottom right;
+    transform: scale(0);
+}
+.fab-checkbox:checked ~ .fab-wheel {
+    transform: scale(1);
+}
+.fab-action {
+    position: absolute;
+    background: #2c87e8;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: White;
+    box-shadow: 0 0.1rem 1rem rgba(24, 66, 154, 0.82);
+    transition: all 1s ease;
+  
+    opacity: 0;
+} 
+.fab-checkbox:checked ~ .fab-wheel .fab-action {
+    opacity: 1;
+}
+
+.fab-action-add:hover {
+    background-color: rgb(41, 159, 49);
+}
+.fab-action-del:hover {
+    background-color: rgba(230, 28, 28, 0.906);
+}
+.fab-wheel .fab-action-add {
+    right: 1rem;
+    bottom: 4rem;
+    font-size: 50px;
+    text-align: center;
+}
+.fab-wheel .fab-action-del {
+    right: 4.2rem;
+    bottom: 1rem;
+    font-size: 16px;
+    text-align: center;
+    font-family: monospace;
+    font-weight: 500;
+}
+  /*Profile icon*/
+#small-profile:hover {
+    opacity: 0.5;
+}
+
+
+
+
+/* Profile page*/
+
+  /*Home button*/
+#home {
+    position: absolute;
+    left: 10px;
+    top:5px;
+    block-size: auto;
+    border-radius: 10px;
+    background-color: transparent;
+    border-color: rgba(68, 69, 69, 0.233);
+    border-width: 2px;
+    font-family: "Oswald";
+    font-size: 20px;
+    color: #000000;
+    width: 70px;
+    padding: 5px;
+}
+#home:hover {
+    background-color: #ededed;
+    opacity: 0.3;
+}
+  /*Profile Icon*/
+.profile-picture-container {
+    width: 20vh;
+    height: 20vh;
+    margin: 20px auto;
+    border-radius: 50%; /* ทำให้เป็นวงกลม */
+    overflow: hidden; /* ซ่อนส่วนเกินของรูป */
+    border: 5px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* กำหนดให้ลูกแบบ absolute ทำงานได้ */
+    background-color: #fff;
+}
+.change-picture-text {
+  position: absolute;
+  bottom: 15px;
+  background-color: transparent;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: monospace;
+  cursor: pointer;
+}
+.profile-picture-container img {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover; 
+}
+.change-picture-text:hover {
+    box-shadow: #000914;
+    opacity: 0.3;
+}
+.profile-picture-container input {
+    display:none;
+}
+  /*Name and Rank*/
+.information-con {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+}
+.information-con label {
+    margin: 10px 0;
+}
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    width: 200px;
+    border-radius: 15px;
+    border-color: transparent;
+}
+  #save-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: transparent;
+    border-color: rgba(68, 69, 69, 0.233);
+    border-width: 2px;
+    font-family: "Oswald";
+    font-size: 16px;
+    color: #000000;
+    width: 70px;
+    padding: 5px;
+    cursor: pointer;
+}
+  #save-btn:hover {
+    background-color: #ededed;
+    opacity: 0.3;
+}
